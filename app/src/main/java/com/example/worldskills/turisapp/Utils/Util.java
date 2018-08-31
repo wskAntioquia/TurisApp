@@ -14,7 +14,7 @@ public class Util implements BaseColumns {
     public final static String CAMPO_IMAGEN="imagen";
 
     public static String sql_sitios="CREATE TABLE "+ Util.TBL_SITIOS +"("+
-            CAMPO_NOMBRE+ " INTEGER PRIMARY KEY AUTOINCREMENT,"+
+            _ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+
             CAMPO_NOMBRE+ " TEXT,"+
             CAMPO_DESCRIP_CORTA+ " TEXT,"+
             CAMPO_UBICACION+ " TEXT,"+
