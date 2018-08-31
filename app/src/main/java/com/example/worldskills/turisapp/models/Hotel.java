@@ -12,7 +12,17 @@ public class Hotel implements Serializable {
     private double longitud;
     private String imagen;
 
-    public Hotel() {
+    public Hotel(String hotel_continental_bluedoors, String descripcion_corta, String ubicacion, String descripcion, String s, String s1, int h_hotelcontinentals) {
+    }
+
+    public Hotel(String nombre, String descripcion_corta, String ubicacion, String descripcion, double latitud, double longitud, String imagen) {
+        this.nombre = nombre;
+        this.descripcion_corta = descripcion_corta;
+        this.ubicacion = ubicacion;
+        this.descripcion = descripcion;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.imagen = imagen;
     }
 
     public String getNombre() {

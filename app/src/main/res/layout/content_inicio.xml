@@ -9,4 +9,36 @@
     tools:context=".activities.InicioActivity"
     tools:showIn="@layout/app_bar_inicio">
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="200dp"
+        android:layout_height="193dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_inicio" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="Tusris App es la aternativa mas agradable, comoda y facil para enterarte de aquello que el departamento del Quindio tiene para ofreverte.
+Sus maravillosos sitios turisticos, restaurantes con la mejor camida y hoteles con grandes comodidades.
+"
+        android:textSize="18sp"
+        app:fontFamily="@font/amiko_semibold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 </android.support.constraint.ConstraintLayout>

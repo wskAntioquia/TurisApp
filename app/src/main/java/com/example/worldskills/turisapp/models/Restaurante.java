@@ -12,7 +12,17 @@ public class Restaurante implements Serializable {
     private double longitud;
     private String imagen;
 
-    public Restaurante() {
+    public Restaurante(String juana_la_loca, String descripcion_corta, String ubicacion, String descripcion, String s, String s1, int r_juanalaloca) {
+    }
+
+    public Restaurante(String nombre, String descripcion_corta, String ubicacion, String descripcion, double latitud, double longitud, String imagen) {
+        this.nombre = nombre;
+        this.descripcion_corta = descripcion_corta;
+        this.ubicacion = ubicacion;
+        this.descripcion = descripcion;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.imagen = imagen;
     }
 
     public String getNombre() {

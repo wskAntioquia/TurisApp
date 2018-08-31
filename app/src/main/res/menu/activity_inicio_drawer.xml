@@ -4,22 +4,27 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
+            android:iconTint="@color/cardBackgroud"
             android:id="@+id/nav_inicio"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="inicio" />
+            android:icon="@mipmap/incio"
+            android:title="INICIO" />
         <item
+            android:iconTint="@color/cardBackgroud"
             android:id="@+id/nav_sitios"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Sitios" />
+            android:icon="@mipmap/sitios"
+            android:title="SITIOS" />
         <item
+            android:iconTint="@color/cardBackgroud"
             android:id="@+id/nav_hoteles"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Hoteles" />
+            android:icon="@mipmap/hotele"
+            android:title="HOTELES" />
         <item
+            android:iconTint="@color/cardBackgroud"
             android:id="@+id/nav_restaurantes"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Restaurantes" />
+            android:icon="@mipmap/restaurantes"
+            android:title="RESTAURANTES"/>
     </group>
 
 
