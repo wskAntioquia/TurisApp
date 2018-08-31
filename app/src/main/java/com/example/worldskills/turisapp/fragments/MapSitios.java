@@ -31,6 +31,7 @@ public class MapSitios extends Fragment {
 
 
     public MapSitios() {
+
         // Required empty public constructor
     }
 
