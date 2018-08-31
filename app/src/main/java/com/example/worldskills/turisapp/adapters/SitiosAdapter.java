@@ -53,7 +53,7 @@ public class SitiosAdapter extends RecyclerView.Adapter<SitiosAdapter.ViewHolder
         public ViewHolder(View itemView) {
             super(itemView);
             nombre=itemView.findViewById(R.id.content_nom);
-            if (Util.visualizacion==Util.LIST){
+            if (Util.visualizacion==Util.LIST || Util.rotacion==Util.PORTRAIT){
                 descripcion=itemView.findViewById(R.id.content_desc);
             }
 

@@ -35,7 +35,7 @@ public class RestaurantesActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         toolbar.setTitle("Restaurantes" );
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fabRestaurantes);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

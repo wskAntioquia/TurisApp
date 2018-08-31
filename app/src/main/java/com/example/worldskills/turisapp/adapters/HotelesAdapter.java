@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.worldskills.turisapp.R;
+import com.example.worldskills.turisapp.Utils.Util;
 import com.example.worldskills.turisapp.models.Hotel;
 import com.squareup.picasso.Picasso;
 
@@ -51,14 +52,20 @@ public class HotelesAdapter extends RecyclerView.Adapter<HotelesAdapter.ViewHold
         public ViewHolder(View itemView) {
             super(itemView);
             nombre=itemView.findViewById(R.id.content_nom);
-            descripcion=itemView.findViewById(R.id.content_desc);
+            if (Util.visualizacion==Util.LIST){
+                descripcion=itemView.findViewById(R.id.content_desc);
+            }
+
             ubicacion=itemView.findViewById(R.id.content_ubic);
             imagen=itemView.findViewById(R.id.content_img);
         }
 
         public void Bind(final Hotel hotel, final OnItemClickListener listener) {
             nombre.setText(hotel.getNombre());
-            descripcion.setText(hotel.getDescripcion_corta());
+            if (Util.visualizacion==Util.LIST){
+                descripcion.setText(hotel.getDescripcion_corta());
+            }
+
             ubicacion.setText(hotel.getUbicacion());
             Picasso.get().load(hotel.getImagen()).error(R.drawable.ic_menu_camera).placeholder(R.drawable.ic_menu_send).fit().into(imagen);
             itemView.setOnClickListener(new View.OnClickListener() {

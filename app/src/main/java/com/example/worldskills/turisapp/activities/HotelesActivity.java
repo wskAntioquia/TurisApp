@@ -34,7 +34,7 @@ public class HotelesActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         toolbar.setTitle("Hoteles" );
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fabHoteles);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

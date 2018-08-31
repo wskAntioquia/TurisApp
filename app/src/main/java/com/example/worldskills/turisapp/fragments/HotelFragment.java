@@ -111,11 +111,15 @@ public class HotelFragment extends Fragment implements HotelesAdapter.OnItemClic
         if (Util.visualizacion==Util.LIST){
             adapter=new HotelesAdapter(R.layout.content_item_list,hotels,this);
             manager=new LinearLayoutManager(getContext());
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(manager);
             Util.listItem.setVisible(false);
             Util.gridItem.setVisible(true);
         }else if (Util.visualizacion==Util.GRID){
             adapter=new HotelesAdapter(R.layout.content_item_grid,hotels,this);
             manager=new GridLayoutManager(getContext(),2);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(manager);
             Util.listItem.setVisible(true);
             Util.gridItem.setVisible(false);
         }

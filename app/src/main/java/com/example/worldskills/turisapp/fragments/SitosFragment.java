@@ -100,11 +100,15 @@ public class SitosFragment extends Fragment implements SitiosAdapter.OnItemClick
         if (Util.visualizacion==Util.LIST){
             adapter=new SitiosAdapter(R.layout.content_item_list,sitios,this);
             manager=new LinearLayoutManager(getContext());
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(manager);
             Util.listItem.setVisible(false);
             Util.gridItem.setVisible(true);
         }else if (Util.visualizacion==Util.GRID){
             adapter=new SitiosAdapter(R.layout.content_item_grid,sitios,this);
             manager=new GridLayoutManager(getContext(),2);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(manager);
             Util.listItem.setVisible(true);
             Util.gridItem.setVisible(false);
         }

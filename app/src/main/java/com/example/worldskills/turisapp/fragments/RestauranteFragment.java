@@ -109,11 +109,15 @@ public class RestauranteFragment extends Fragment implements RestaurantesAdapter
         if (Util.visualizacion==Util.LIST){
             adapter=new RestaurantesAdapter(R.layout.content_item_list,restaurantes,this);
             manager=new LinearLayoutManager(getContext());
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(manager);
             Util.listItem.setVisible(false);
             Util.gridItem.setVisible(true);
         }else if (Util.visualizacion==Util.GRID){
             adapter=new RestaurantesAdapter(R.layout.content_item_grid,restaurantes,this);
             manager=new GridLayoutManager(getContext(),2);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(manager);
             Util.listItem.setVisible(true);
             Util.gridItem.setVisible(false);
         }

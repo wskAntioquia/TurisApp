@@ -24,6 +24,10 @@ public class Util implements BaseColumns {
     public final static int GRID=0;
     public final static int LIST=1;
     public static int visualizacion=0;
+    public static int rotacion=0;
+
+    public final static int PORTRAIT=0;
+    public final static int LAND=1;
 
     public static MenuItem listItem=null;
     public static MenuItem gridItem=null;

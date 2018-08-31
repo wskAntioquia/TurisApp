@@ -50,7 +50,10 @@ public class SitiosActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         if (savedInstanceState==null && findViewById(R.id.content_sitios)!=null){
+            Util.rotacion=Util.PORTRAIT;
             getSupportFragmentManager().beginTransaction().replace(R.id.content_sitios,new SitosFragment()).commit();
+        }else {
+            Util.rotacion=Util.LAND;
         }
 
 
