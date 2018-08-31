@@ -56,8 +56,11 @@ public class SitiosAdapter extends RecyclerView.Adapter<SitiosAdapter.ViewHolder
             if (Util.visualizacion==Util.LIST || Util.rotacion==Util.PORTRAIT){
                 descripcion=itemView.findViewById(R.id.content_desc);
             }
+            if (Util.rotacion==Util.PORTRAIT){
+                ubicacion=itemView.findViewById(R.id.content_ubic);
+            }
 
-            ubicacion=itemView.findViewById(R.id.content_ubic);
+
             imagen=itemView.findViewById(R.id.content_img);
         }
 
@@ -67,7 +70,10 @@ public class SitiosAdapter extends RecyclerView.Adapter<SitiosAdapter.ViewHolder
                 descripcion.setText(sitio.getDescripcion_corta());
             }
 
-            ubicacion.setText(sitio.getUbicacion());
+            if (Util.rotacion==Util.PORTRAIT){
+                ubicacion.setText(sitio.getUbicacion());
+            }
+
             Picasso.get().load(sitio.getImagen()).error(R.drawable.ic_menu_camera).placeholder(R.drawable.ic_menu_send).fit().into(imagen);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
