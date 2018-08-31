@@ -48,6 +48,7 @@ public class HotelFragment extends Fragment implements HotelesAdapter.OnItemClic
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        getActivity().setTitle("Hoteles");
         datos=new Datos(getContext());
     }
 

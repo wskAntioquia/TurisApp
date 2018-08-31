@@ -46,14 +46,17 @@ public class DetailsFragment extends Fragment {
             switch (type){
                 case Util.SITIO:
                     sitio= (Sitio) bundle.getSerializable("obj");
+                    getActivity().setTitle(sitio.getNombre());
                     cargarSitio(sitio);
                     break;
                 case Util.HOTEL:
                     hotel= (Hotel) bundle.getSerializable("obj");
+                    getActivity().setTitle(hotel.getNombre());
                     cargarHotel(hotel);
                     break;
                 case Util.RESTAURANTE:
                     restaurante= (Restaurante) bundle.getSerializable("obj");
+                    getActivity().setTitle(restaurante.getNombre());
                     cargarRestaurante(restaurante);
                     break;
 

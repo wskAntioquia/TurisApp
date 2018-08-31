@@ -43,6 +43,7 @@ public class RestauranteFragment extends Fragment implements RestaurantesAdapter
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        getActivity().setTitle("Restaurantes");
         datos=new Datos(getContext());
 
     }

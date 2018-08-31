@@ -49,6 +49,7 @@ public class SitosFragment extends Fragment implements SitiosAdapter.OnItemClick
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         datos=new Datos(getContext());
+        getActivity().setTitle("Sitios");
 
     }
 

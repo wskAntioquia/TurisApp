@@ -53,7 +53,6 @@ public class MapSitios extends Fragment {
                 @Override
                 public void onMapReady(GoogleMap googleMap) {
                     map=googleMap;
-                    map.setMinZoomPreference(11);
                     for (int i=0;i<SitosFragment.sitios.size();i++){
                         sitio=SitosFragment.sitios.get(i);
                         LatLng latLng=new LatLng(sitio.getLatitud(),sitio.getLongitud());
