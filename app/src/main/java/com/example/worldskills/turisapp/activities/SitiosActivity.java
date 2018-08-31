@@ -28,7 +28,7 @@ public class SitiosActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabSitios);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

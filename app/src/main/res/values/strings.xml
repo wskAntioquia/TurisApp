@@ -22,19 +22,7 @@
 
     <string name="metropolitano_corta">Área verde urbana con recorridos para caminantes y ciclistas, lago para andar en bote y un área de juego.</string>
     <string name="metropolitano_larga">"Este es el más grande e importante de la ciudad por varias razones: su estratégica ubicación en el corazón de Bogotá; sus amplios espacios verdes acompañados de un innumerable número de árboles o por la cantidad y variedad de los escenarios que lo conforman.
-Este 'pulmón de la ciudad', que se ha convertido en parte esencial de la vida de los capitalinos, está conformado por:
-- El parque Central Simón Bolívar(Calle 63 y 53 entre carreras 48 y 68)
-- El parque Los Novios (o parque El Lago)
-- El Complejo Acuático
-- El Centro de Alto Rendimiento
-- La Cancha Popular de Golf
-- La Plaza de los Artesanos
-- El Salitre PRD (Recreodeportivo)
-- El Museo de los Niños
-- La biblioteca Virgilio Barco
-- La Unidad Deportiva El Salitre
-- El Salitre Mágico
-- El Jardín Botánico"
+Este 'pulmón de la ciudad', que se ha convertido en parte esencial de la vida de los capitalinos, está conformado por:El parque Central Simón Bolívar(Calle 63 y 53 entre carreras 48 y 68)El parque Los Novios (o parque El Lago)El Complejo AcuáticoEl Centro de Alto RendimientoLa Cancha Popular de GolfLa Plaza de los ArtesanosEl Salitre PRD (Recreodeportivo)El Museo de los NiñosLa biblioteca Virgilio BarcoLa Unidad Deportiva El SalitreEl Salitre MágicoEl Jardín Botánico"
 </string>
 
     <string name="bolivar_corta">Centro urbano espacioso rodeado por una catedral y edificios importantes con una arquitectura destacada.</string>
@@ -52,18 +40,9 @@ Cuenta con 230 locales comerciales distribuidos en 4 niveles, 700 parqueaderos u
 </string>
 
     <string name="mayor_corta">"Centro comercial Centro MayorGrandes emociones para todos.Centro comercial Centro Mayor en Bogotá Cund - Colombia.jpgEntrada principal del centro comercial.Ubicación Bandera de Colombia Bogotá, ColombiaLocalidad de Antonio NariñoCoordenadas 4°35′30″N 74°07′26″OCoordenadas: 4°35′30″N 74°07′26″O (mapa)Dirección Avenida NQS con 38A surApertura 26 de marzo de 2010 (8 años)Desarrollador Arquitectura  ConcretoGerencia OspinasPropietario Luis Carlos Sarmiento AnguloArquitectos Contexto UrbanoTiendas y servicios 354 tiendasSuperficie total 300.000 m²Estacionamiento 3.141 espaciosN.º de plantas 3 nivelesCentro Comercial Centro Mayor[editar datos en Wikidata]El centro comercial Centro Mayor es un centro comercial ubicado en la localidad de Antonio Nariño, situada al sur de Bogotá"</string>
-    <string name="mayor_larga">"El centro comercial cuenta con una disposición especial en su interior. Tiene una temática circense adoptada en su estructura y en su decoración. En cuanto a responsabilidad ambiental, su arquitectura bioclimática aprovecha los recursos climáticos (sol, lluvia, vientos) para disminuir los impactos ambientales y reducir el consumo de energía.4​ Cada una de las plazoletas en las que se divide el establecimiento tienen por nombre el de algún personaje circense y tienen en ellas esculturas de más de cuatro metros alusivas a dichos personajes:
-
-Plaza del Acordeonista
-Plaza del Mago
-Plaza del Contorsionista
-Plaza del Malabarista
-Plaza del Equilibrista
-Plaza del Payaso
-Plaza del Trapecista (Plaza principal)"
+    <string name="mayor_larga">"El centro comercial cuenta con una disposición especial en su interior. Tiene una temática circense adoptada en su estructura y en su decoración. En cuanto a responsabilidad ambiental, su arquitectura bioclimática aprovecha los recursos climáticos (sol, lluvia, vientos) para disminuir los impactos ambientales y reducir el consumo de energía.4​ Cada una de las plazoletas en las que se divide el establecimiento tienen por nombre el de algún personaje circense y tienen en ellas esculturas de más de cuatro metros alusivas a dichos personajes:Plaza del AcordeonistPlaza del MagPlaza del ContorsionistPlaza del MalabaristPlaza del EquilibristPlaza del PayasPlaza del Trapecista (Plaza principal)"
 </string>
-
-
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>

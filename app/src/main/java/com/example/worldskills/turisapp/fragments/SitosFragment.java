@@ -1,6 +1,7 @@
 package com.example.worldskills.turisapp.fragments;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,6 +20,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.worldskills.turisapp.R;
+import com.example.worldskills.turisapp.Utils.Util;
 import com.example.worldskills.turisapp.adapters.SitiosAdapter;
 import com.example.worldskills.turisapp.data.Datos;
 import com.example.worldskills.turisapp.models.Sitio;
@@ -35,7 +37,7 @@ public class SitosFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager manager;
     private SitiosAdapter adapter;
-    private ArrayList<Sitio> sitios;
+    public static ArrayList<Sitio> sitios;
     private Datos datos;
     private Sitio sitio;
 
@@ -66,7 +68,8 @@ public class SitosFragment extends Fragment {
         recyclerView=view.findViewById(R.id.recyclerSitios);
         manager=new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(manager);
-        sitios=datos.listarSitios();
+        sitios=new ArrayList<>();
+        sitios=listraSitios();
         adapter=new SitiosAdapter(R.layout.content_item_list, sitios, new SitiosAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Sitio sitio, int position) {
@@ -77,6 +80,22 @@ public class SitosFragment extends Fragment {
         return view;
     }
 
+    private ArrayList<Sitio> listraSitios() {
+        Cursor cursor=datos.listarSitios();
+        do {
+            sitio=new Sitio();
+            sitio.setNombre(cursor.getString(cursor.getColumnIndex(Util.CAMPO_NOMBRE)));
+            sitio.setDescripcion_corta(cursor.getString(cursor.getColumnIndex(Util.CAMPO_DESCRIP_CORTA)));
+            sitio.setUbicacion(cursor.getString(cursor.getColumnIndex(Util.CAMPO_UBICACION)));
+            sitio.setDescripcion(cursor.getString(cursor.getColumnIndex(Util.CAMPO_DESCRIPCION)));
+            sitio.setLatitud(cursor.getDouble(cursor.getColumnIndex(Util.CAMPO_LATITUD)));
+            sitio.setLongitud(cursor.getDouble(cursor.getColumnIndex(Util.CAMPO_LONGITUD)));
+            sitio.setImagen(Integer.parseInt(cursor.getString(cursor.getColumnIndex(Util.CAMPO_IMAGEN))));
+            sitios.add(sitio);
+        }while (cursor.moveToNext());
+        return sitios;
+
+    }
 
 
     // TODO: Rename method, update argument and hook method into UI event
