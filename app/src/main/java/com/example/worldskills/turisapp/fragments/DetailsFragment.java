@@ -68,17 +68,17 @@ public class DetailsFragment extends Fragment {
     public void cargarSitio(Sitio sitio) {
         nombre.setText(sitio.getNombre());
         descripcion.setText(sitio.getDescripcion());
-        Picasso.get().load(sitio.getImagen()).error(R.drawable.ic_menu_camera).placeholder(R.drawable.ic_menu_send).fit().into(imagen);
+        Picasso.get().load(sitio.getImagen()).error(R.drawable.error).placeholder(R.drawable.cargando).fit().into(imagen);
     }
     public void cargarHotel(Hotel hotel) {
         nombre.setText(hotel.getNombre());
         descripcion.setText(hotel.getDescripcion());
-        Picasso.get().load(hotel.getImagen()).error(R.drawable.ic_menu_camera).placeholder(R.drawable.ic_menu_send).fit().into(imagen);
+        Picasso.get().load(hotel.getImagen()).error(R.drawable.error).placeholder(R.drawable.cargando).fit().into(imagen);
     }
     public void cargarRestaurante(Restaurante restaurante) {
         nombre.setText(restaurante.getNombre());
         descripcion.setText(restaurante.getDescripcion());
-        Picasso.get().load(restaurante.getImagen()).error(R.drawable.ic_menu_camera).placeholder(R.drawable.ic_menu_send).fit().into(imagen);
+        Picasso.get().load(restaurante.getImagen()).error(R.drawable.error).placeholder(R.drawable.cargando).fit().into(imagen);
     }
 }
 
