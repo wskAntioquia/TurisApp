@@ -2,6 +2,7 @@ package com.example.worldskills.turisapp.fragments;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -16,33 +17,27 @@ import android.view.ViewGroup;
 
 import com.example.worldskills.turisapp.R;
 import com.example.worldskills.turisapp.Utils.Util;
-import com.example.worldskills.turisapp.adapters.SitiosAdapter;
+import com.example.worldskills.turisapp.adapters.RestaurantesAdapter;
 import com.example.worldskills.turisapp.data.Datos;
-import com.example.worldskills.turisapp.models.Sitio;
+import com.example.worldskills.turisapp.models.Restaurante;
 
 import java.util.ArrayList;
 
 
-public class SitosFragment extends Fragment implements SitiosAdapter.OnItemClickListener {
+public class RestauranteFragment extends Fragment implements RestaurantesAdapter.OnItemClickListener{
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager manager;
-    private SitiosAdapter adapter;
-    public static ArrayList<Sitio> sitios;
+    private RestaurantesAdapter adapter;
+    public static ArrayList<Restaurante> restaurantes;
     private Datos datos;
-    private Sitio sitio;
+    private Restaurante restaurante;
+    private OnSendRestaurante mListener;
 
-
-    private OnSendSitio mListener;
-
-    public SitosFragment() {
+    public RestauranteFragment() {
         // Required empty public constructor
     }
 
 
-    public static SitosFragment newInstance(String param1, String param2) {
-        SitosFragment fragment = new SitosFragment();
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,21 +47,36 @@ public class SitosFragment extends Fragment implements SitiosAdapter.OnItemClick
 
     }
 
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.fragment_sitos, container, false);
-        recyclerView=view.findViewById(R.id.recyclerSitios);
+        View view=inflater.inflate(R.layout.fragment_restaurante, container, false);
+        recyclerView=view.findViewById(R.id.recyclerRestaurantes);
         manager=new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(manager);
-        sitios=new ArrayList<>();
-        sitios= listarSitios();
-        adapter=new SitiosAdapter(R.layout.content_item_list, sitios,this);
+        restaurantes=new ArrayList<>();
+        restaurantes= listarRestaurantes();
+        adapter=new RestaurantesAdapter(R.layout.content_item_list, restaurantes,this);
         recyclerView.setAdapter(adapter);
+
         return view;
+    }
+
+    private ArrayList<Restaurante> listarRestaurantes() {
+        Cursor cursor=datos.listarRestaurantes();
+        do {
+            restaurante=new Restaurante();
+            restaurante.setNombre(cursor.getString(cursor.getColumnIndex(Util.CAMPO_NOMBRE)));
+            restaurante.setDescripcion_corta(cursor.getString(cursor.getColumnIndex(Util.CAMPO_DESCRIP_CORTA)));
+            restaurante.setUbicacion(cursor.getString(cursor.getColumnIndex(Util.CAMPO_UBICACION)));
+            restaurante.setDescripcion(cursor.getString(cursor.getColumnIndex(Util.CAMPO_DESCRIPCION)));
+            restaurante.setLatitud(cursor.getDouble(cursor.getColumnIndex(Util.CAMPO_LATITUD)));
+            restaurante.setLongitud(cursor.getDouble(cursor.getColumnIndex(Util.CAMPO_LONGITUD)));
+            restaurante.setImagen(Integer.parseInt(cursor.getString(cursor.getColumnIndex(Util.CAMPO_IMAGEN))));
+            restaurantes.add(restaurante);
+        }while (cursor.moveToNext());
+        return restaurantes;
+
     }
 
     @Override
@@ -95,47 +105,29 @@ public class SitosFragment extends Fragment implements SitiosAdapter.OnItemClick
         return super.onOptionsItemSelected(item);
     }
 
-
     private void cambiarVisualizacion() {
         if (Util.visualizacion==Util.LIST){
-            adapter=new SitiosAdapter(R.layout.content_item_list,sitios,this);
+            adapter=new RestaurantesAdapter(R.layout.content_item_list,restaurantes,this);
             manager=new LinearLayoutManager(getContext());
             Util.listItem.setVisible(false);
             Util.gridItem.setVisible(true);
         }else if (Util.visualizacion==Util.GRID){
-            adapter=new SitiosAdapter(R.layout.content_item_grid,sitios,this);
+            adapter=new RestaurantesAdapter(R.layout.content_item_grid,restaurantes,this);
             manager=new GridLayoutManager(getContext(),2);
             Util.listItem.setVisible(true);
             Util.gridItem.setVisible(false);
         }
     }
 
-    private ArrayList<Sitio> listarSitios() {
-        Cursor cursor=datos.listarSitios();
-        do {
-            sitio=new Sitio();
-            sitio.setNombre(cursor.getString(cursor.getColumnIndex(Util.CAMPO_NOMBRE)));
-            sitio.setDescripcion_corta(cursor.getString(cursor.getColumnIndex(Util.CAMPO_DESCRIP_CORTA)));
-            sitio.setUbicacion(cursor.getString(cursor.getColumnIndex(Util.CAMPO_UBICACION)));
-            sitio.setDescripcion(cursor.getString(cursor.getColumnIndex(Util.CAMPO_DESCRIPCION)));
-            sitio.setLatitud(cursor.getDouble(cursor.getColumnIndex(Util.CAMPO_LATITUD)));
-            sitio.setLongitud(cursor.getDouble(cursor.getColumnIndex(Util.CAMPO_LONGITUD)));
-            sitio.setImagen(Integer.parseInt(cursor.getString(cursor.getColumnIndex(Util.CAMPO_IMAGEN))));
-            sitios.add(sitio);
-        }while (cursor.moveToNext());
-        return sitios;
-
-    }
-
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnSendSitio) {
-            mListener = (OnSendSitio) context;
+        if (context instanceof OnSendRestaurante) {
+            mListener = (OnSendRestaurante) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnSendSitio");
+                    + " must implement OnSendRestaurante");
         }
     }
 
@@ -146,13 +138,13 @@ public class SitosFragment extends Fragment implements SitiosAdapter.OnItemClick
     }
 
     @Override
-    public void onItemClick(Sitio sitio, int position) {
-        mListener.sendSitio(sitios.get(position));
+    public void onItemClick(Restaurante restaurante, int position) {
+        mListener.sendRestaurante(restaurantes.get(position));
     }
 
 
-    public interface OnSendSitio {
+    public interface OnSendRestaurante {
         // TODO: Update argument type and name
-        void sendSitio(Sitio sitio);
+        void sendRestaurante(Restaurante restaurante);
     }
 }

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.worldskills.turisapp.R;
+import com.example.worldskills.turisapp.Utils.Util;
 import com.example.worldskills.turisapp.models.Sitio;
 import com.squareup.picasso.Picasso;
 
@@ -52,14 +53,20 @@ public class SitiosAdapter extends RecyclerView.Adapter<SitiosAdapter.ViewHolder
         public ViewHolder(View itemView) {
             super(itemView);
             nombre=itemView.findViewById(R.id.content_nom);
-            descripcion=itemView.findViewById(R.id.content_desc);
+            if (Util.visualizacion==Util.LIST){
+                descripcion=itemView.findViewById(R.id.content_desc);
+            }
+
             ubicacion=itemView.findViewById(R.id.content_ubic);
             imagen=itemView.findViewById(R.id.content_img);
         }
 
         public void Bind(final Sitio sitio, final OnItemClickListener listener) {
             nombre.setText(sitio.getNombre());
-            descripcion.setText(sitio.getDescripcion_corta());
+            if (Util.visualizacion==Util.LIST){
+                descripcion.setText(sitio.getDescripcion_corta());
+            }
+
             ubicacion.setText(sitio.getUbicacion());
             Picasso.get().load(sitio.getImagen()).error(R.drawable.ic_menu_camera).placeholder(R.drawable.ic_menu_send).fit().into(imagen);
             itemView.setOnClickListener(new View.OnClickListener() {

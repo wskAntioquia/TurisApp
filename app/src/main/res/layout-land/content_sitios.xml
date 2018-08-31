@@ -21,7 +21,7 @@
         android:layout_width="0dp"
         android:layout_weight="2"
         tools:layout="@layout/fragment_details"
-        android:name="com.example.worldskills.turisapp.adapters.DetailsFragment"
+        android:name="com.example.worldskills.turisapp.fragments.DetailsFragment"
         android:layout_height="match_parent"/>
 
 </LinearLayout>

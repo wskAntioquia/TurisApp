@@ -25,8 +25,8 @@ public class Util implements BaseColumns {
     public final static int LIST=1;
     public static int visualizacion=0;
 
-    public static MenuItem listItem;
-    public static MenuItem gridItem;
+    public static MenuItem listItem=null;
+    public static MenuItem gridItem=null;
 
     //crear la tabla sitios
     public static String sql_sitios="CREATE TABLE "+ Util.TBL_SITIOS +"("+

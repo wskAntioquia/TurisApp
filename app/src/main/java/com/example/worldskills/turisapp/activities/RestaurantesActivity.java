@@ -16,10 +16,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.worldskills.turisapp.R;
+import com.example.worldskills.turisapp.Utils.Util;
+import com.example.worldskills.turisapp.fragments.DetailsFragment;
+import com.example.worldskills.turisapp.fragments.RestauranteFragment;
+import com.example.worldskills.turisapp.fragments.SitosFragment;
+import com.example.worldskills.turisapp.models.Restaurante;
 
 public class RestaurantesActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,RestauranteFragment.OnSendRestaurante {
 
+    FloatingActionButton fab;
+    DetailsFragment fragment=new DetailsFragment();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +51,10 @@ public class RestaurantesActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        if (savedInstanceState==null && findViewById(R.id.content_restaurantes)!=null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_restaurantes,new RestauranteFragment()).commit();
+        }
     }
 
     @Override
@@ -56,27 +67,7 @@ public class RestaurantesActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.restaurantes, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -98,5 +89,21 @@ public class RestaurantesActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void sendRestaurante(Restaurante restaurante) {
+        fragment= (DetailsFragment) getSupportFragmentManager().findFragmentById(R.id.listaDetail);
+        if (fragment!=null){
+            fragment.cargarRestaurante(restaurante);
+        }else {
+            fab.hide();
+            fragment=new DetailsFragment();
+            Bundle bundle=new Bundle();
+            bundle.putSerializable("obj",restaurante);
+            bundle.putInt("type", Util.RESTAURANTE);
+            fragment.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_restaurantes,fragment).commit();
+        }
     }
 }

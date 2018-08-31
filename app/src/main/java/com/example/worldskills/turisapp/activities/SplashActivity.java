@@ -63,8 +63,8 @@ public class SplashActivity extends AppCompatActivity {
         try {
             hotel=new ArrayList<Hotel>(){{
                 add(new Hotel ("Hotel Continental Bluedoors","Hotel sofisticado con un bar restaurante moderno y una cafetería, además de un gimnasio y un spa.",
-                            "Avenida Jiménez No. 4 - 16\n" +
-                                    "Candelaria - Centro Historico","Este elegante hotel con todo suites, situado a 4 minutos a pie de los objetos de oro del Museo del Oro, también se encuentra a 8 minutos a pie de las obras de arte del Museo Botero y a 11 minutos a pie de la Plaza de Bolívar, la plaza principal de la ciudad.\n" +
+                            "Avenida Jiménez No. 4 - 16" +
+                                    "Candelaria - Centro Historico","Este elegante hotel con todo suites, situado a 4 minutos a pie de los objetos de oro del Museo del Oro, también se encuentra a 8 minutos a pie de las obras de arte del Museo Botero y a 11 minutos a pie de la Plaza de Bolívar, la plaza principal de la ciudad." +
                         "Las luminosas y modernas suites disponen de Wi-Fi gratis, televisiones de pantalla plana y minibares, además de cocinas y salas de estar.\n" +
                         "El aparcamiento es gratuito. El desayuno se ofrece por un suplemento. Entre el resto de instalaciones que se incluyen en el hotel se encuentran una panadería cafetería, un bar restaurante moderno con terraza, un gimnasio y un spa.",4.6010598,-74.0705079,R.drawable.h_hotelcontinentals));
 

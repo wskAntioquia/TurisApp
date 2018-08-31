@@ -1,4 +1,4 @@
-package com.example.worldskills.turisapp.adapters;
+package com.example.worldskills.turisapp.fragments;
 
 
 import android.os.Bundle;
@@ -49,12 +49,12 @@ public class DetailsFragment extends Fragment {
                     cargarSitio(sitio);
                     break;
                 case Util.HOTEL:
-                    sitio= (Sitio) bundle.getSerializable("obj");
-                    cargarSitio(sitio);
+                    hotel= (Hotel) bundle.getSerializable("obj");
+                    cargarHotel(hotel);
                     break;
                 case Util.RESTAURANTE:
-                    sitio= (Sitio) bundle.getSerializable("obj");
-                    cargarSitio(sitio);
+                    restaurante= (Restaurante) bundle.getSerializable("obj");
+                    cargarRestaurante(restaurante);
                     break;
 
 
@@ -69,6 +69,16 @@ public class DetailsFragment extends Fragment {
         nombre.setText(sitio.getNombre());
         descripcion.setText(sitio.getDescripcion());
         Picasso.get().load(sitio.getImagen()).error(R.drawable.ic_menu_camera).placeholder(R.drawable.ic_menu_send).fit().into(imagen);
+    }
+    public void cargarHotel(Hotel hotel) {
+        nombre.setText(hotel.getNombre());
+        descripcion.setText(hotel.getDescripcion());
+        Picasso.get().load(hotel.getImagen()).error(R.drawable.ic_menu_camera).placeholder(R.drawable.ic_menu_send).fit().into(imagen);
+    }
+    public void cargarRestaurante(Restaurante restaurante) {
+        nombre.setText(restaurante.getNombre());
+        descripcion.setText(restaurante.getDescripcion());
+        Picasso.get().load(restaurante.getImagen()).error(R.drawable.ic_menu_camera).placeholder(R.drawable.ic_menu_send).fit().into(imagen);
     }
 }
 

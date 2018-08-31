@@ -18,22 +18,13 @@ import android.view.ViewGroup;
 import com.example.worldskills.turisapp.R;
 import com.example.worldskills.turisapp.Utils.Util;
 import com.example.worldskills.turisapp.adapters.HotelesAdapter;
-import com.example.worldskills.turisapp.adapters.SitiosAdapter;
 import com.example.worldskills.turisapp.data.Datos;
 import com.example.worldskills.turisapp.models.Hotel;
-import com.example.worldskills.turisapp.models.Sitio;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link HotelFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link HotelFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class HotelFragment extends Fragment implements {
+
+public class HotelFragment extends Fragment implements HotelesAdapter.OnItemClickListener{
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager manager;
     private HotelesAdapter adapter;
@@ -41,7 +32,7 @@ public class HotelFragment extends Fragment implements {
     private Datos datos;
     private Hotel hotel;
 
-    private OnFragmentInteractionListener mListener;
+    private OnSendoHotel mListener;
 
     public HotelFragment() {
         // Required empty public constructor
@@ -78,7 +69,7 @@ public class HotelFragment extends Fragment implements {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.inicio,menu);
         Util.listItem=menu.findItem(R.id.list);
-        Util.listItem=menu.findItem(R.id.grid);
+        Util.gridItem=menu.findItem(R.id.grid);
         cambiarVisualizacion();
         super.onCreateOptionsMenu(menu, inflater);
     }
@@ -113,7 +104,8 @@ public class HotelFragment extends Fragment implements {
             return hotels;
 
         }
-    }
+
+
 
     private void cambiarVisualizacion() {
         if (Util.visualizacion==Util.LIST){
@@ -129,21 +121,16 @@ public class HotelFragment extends Fragment implements {
         }
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
+
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof OnSendoHotel) {
+            mListener = (OnSendoHotel) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement OnSendoHotel");
         }
     }
 
@@ -153,7 +140,13 @@ public class HotelFragment extends Fragment implements {
         mListener = null;
     }
 
-    /**
+    @Override
+    public void onItemClick(Hotel hotel, int position) {
+        mListener.sendHotel(hotels.get(position));
+    }
+
+
+/**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
@@ -163,8 +156,8 @@ public class HotelFragment extends Fragment implements {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener {
+    public interface OnSendoHotel {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void sendHotel(Hotel hotel);
     }
 }
