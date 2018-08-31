@@ -1,6 +1,7 @@
 package com.example.worldskills.turisapp.Utils;
 
 import android.provider.BaseColumns;
+import android.view.MenuItem;
 
 public class Util implements BaseColumns {
 
@@ -16,14 +17,25 @@ public class Util implements BaseColumns {
     public final static String CAMPO_LONGITUD="longitud";
     public final static String CAMPO_IMAGEN="imagen";
 
+    public final static int SITIO=0;
+    public final static int HOTEL=1;
+    public final static int RESTAURANTE=2;
+
+    public final static int GRID=0;
+    public final static int LIST=1;
+    public static int visualizacion=0;
+
+    public static MenuItem listItem;
+    public static MenuItem gridItem;
+
     public static String sql_sitios="CREATE TABLE "+ Util.TBL_SITIOS +"("+
             _ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+
             CAMPO_NOMBRE+ " TEXT,"+
             CAMPO_DESCRIP_CORTA+ " TEXT,"+
             CAMPO_UBICACION+ " TEXT,"+
             CAMPO_DESCRIPCION+ " TEXT,"+
-            CAMPO_LATITUD+ " TEXT,"+
-            CAMPO_LONGITUD+ " TEXT,"+
+            CAMPO_LATITUD+ " REAL,"+
+            CAMPO_LONGITUD+ " REAL,"+
             CAMPO_IMAGEN+ " INTEGER)";
 
     public static String sql_hoteles="CREATE TABLE "+ Util.TBL_HOTELES +"("+
@@ -32,8 +44,8 @@ public class Util implements BaseColumns {
             CAMPO_DESCRIP_CORTA+ " TEXT,"+
             CAMPO_UBICACION+ " TEXT,"+
             CAMPO_DESCRIPCION+ " TEXT,"+
-            CAMPO_LATITUD+ " TEXT,"+
-            CAMPO_LONGITUD+ " TEXT,"+
+            CAMPO_LATITUD+ " REAL,"+
+            CAMPO_LONGITUD+ " REAL,"+
             CAMPO_IMAGEN+ " INTEGER)";
 
     public static String sql_restaurantes="CREATE TABLE "+ Util.TBL_RESTAURANTES +"("+

@@ -11,10 +11,13 @@ import android.view.ViewGroup;
 
 import com.example.worldskills.turisapp.R;
 import com.example.worldskills.turisapp.models.Sitio;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -52,7 +55,12 @@ public class MapSitios extends Fragment {
                     map.setMinZoomPreference(11);
                     for (int i=0;i<SitosFragment.sitios.size();i++){
                         sitio=SitosFragment.sitios.get(i);
-                        /*LatLng latLng=new LatLng(Long.parseLong(sitio.getLatitud(),Long.parseLong(sitio.getLongitud()));*/
+                        LatLng latLng=new LatLng(sitio.getLatitud(),sitio.getLongitud());
+                        map.addMarker(new MarkerOptions().position(latLng).title(sitio.getNombre()));
+                        if (i==0){
+                            CameraPosition position=new CameraPosition(latLng,10,0,0);
+                            map.animateCamera(CameraUpdateFactory.newCameraPosition(position));
+                        }
 
                     }
                 }

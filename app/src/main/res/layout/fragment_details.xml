@@ -11,15 +11,24 @@
 
         android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imagenDetail"
-        android:layout_width="match_parent"
-        android:layout_height="200dp" />
-    <TextView
-        android:id="@+id/nombreDetail"
-        android:text=""
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/imagenDetail"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/h_hotelnh" />
+
+        <TextView
+            android:id="@+id/nombreDetail"
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="35dp" />
+
+        <TextView
+            android:id="@+id/descripcionDetail"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="292dp"
+            />
 
 
 

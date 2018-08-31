@@ -17,7 +17,7 @@ public class Datos extends SQLiteOpenHelper {
     SQLiteDatabase db;
     Cursor cursor;
     public Datos(Context context) {
-        super(context, "a", null, 1);
+        super(context, "B", null, 1);
     }
 
     @Override

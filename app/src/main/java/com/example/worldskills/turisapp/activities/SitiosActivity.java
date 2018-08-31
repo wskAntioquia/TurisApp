@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,11 +15,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.worldskills.turisapp.R;
+import com.example.worldskills.turisapp.Utils.Util;
+import com.example.worldskills.turisapp.adapters.DetailsFragment;
+import com.example.worldskills.turisapp.fragments.MapSitios;
 import com.example.worldskills.turisapp.fragments.SitosFragment;
+import com.example.worldskills.turisapp.models.Sitio;
 
 public class SitiosActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,SitosFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener,SitosFragment.OnSendSitio {
 
+    FloatingActionButton fab;
+    DetailsFragment fragment=new DetailsFragment();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,12 +33,11 @@ public class SitiosActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabSitios);
+         fab = (FloatingActionButton) findViewById(R.id.fabSitios);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               getSupportFragmentManager().beginTransaction().replace(R.id.content_sitios,new MapSitios()).commit();
             }
         });
 
@@ -45,8 +49,11 @@ public class SitiosActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        if (savedInstanceState==null && findViewById(R.id.content_sitios)!=null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_sitios,new SitosFragment()).commit();
+        }
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.content_sitios,new SitosFragment()).commit();
+
     }
 
     @Override
@@ -103,8 +110,21 @@ public class SitiosActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
+
+    @Override
+    public void sendSitio(Sitio sitio) {
+        fragment= (DetailsFragment) getSupportFragmentManager().findFragmentById(R.id.listaDetail);
+        if (fragment!=null){
+            fragment.cargarSitio(sitio);
+        }else {
+            fab.hide();
+            fragment=new DetailsFragment();
+            Bundle bundle=new Bundle();
+            bundle.putSerializable("obj",sitio);
+            bundle.putInt("type", Util.SITIO);
+            fragment.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_sitios,fragment).commit();
+        }
     }
 }

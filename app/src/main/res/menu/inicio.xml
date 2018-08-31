@@ -4,6 +4,20 @@
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
+        android:visible="false"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/grid"
+        android:orderInCategory="100"
+        android:title="Grid"
+        android:icon="@drawable/grid"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/list"
+        android:orderInCategory="100"
+        android:visible="false"
+        android:icon="@drawable/lista"
+        android:title="List"
+        app:showAsAction="ifRoom" />
 </menu>
