@@ -26,6 +26,7 @@ public class InicioActivity extends AppCompatActivity
         setContentView(R.layout.activity_inicio);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Inicio" );
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
