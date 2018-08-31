@@ -31,7 +31,7 @@ public class SitiosActivity extends AppCompatActivity
         setContentView(R.layout.activity_sitios);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Inicio" );
+        toolbar.setTitle("Sitios" );
 
          fab = (FloatingActionButton) findViewById(R.id.fabSitios);
         fab.setOnClickListener(new View.OnClickListener() {

@@ -33,6 +33,7 @@ public class RestaurantesActivity extends AppCompatActivity
         setContentView(R.layout.activity_restaurantes);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Restaurantes" );
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
