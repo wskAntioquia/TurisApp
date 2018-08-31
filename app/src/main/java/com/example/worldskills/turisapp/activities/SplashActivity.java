@@ -57,6 +57,7 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
+    //ingresar los hoteles al array
     private void ingresarHoteles() {
 
         try {
@@ -103,6 +104,7 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
+    //ingresar los restaurantes al array
     private void ingresarRestaurantes() {
 
         try {

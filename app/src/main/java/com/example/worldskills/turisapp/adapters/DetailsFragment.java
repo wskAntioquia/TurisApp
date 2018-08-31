@@ -64,6 +64,7 @@ public class DetailsFragment extends Fragment {
         return view;
     }
 
+    //cargar los sitios
     public void cargarSitio(Sitio sitio) {
         nombre.setText(sitio.getNombre());
         descripcion.setText(sitio.getDescripcion());

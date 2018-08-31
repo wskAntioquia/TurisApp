@@ -45,6 +45,7 @@ public class SitiosAdapter extends RecyclerView.Adapter<SitiosAdapter.ViewHolder
         return sitios.size();
     }
 
+    //se gargan los elementos graficos
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nombre,descripcion,ubicacion;
         public ImageView imagen;

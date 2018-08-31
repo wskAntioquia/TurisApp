@@ -19,6 +19,7 @@ public class RestaurantesAdapter extends RecyclerView.Adapter<RestaurantesAdapte
     private ArrayList<Restaurante>restaurantes;
     private OnItemClickListener listener;
 
+    //constructor del adapter
     public RestaurantesAdapter(int layout, ArrayList<Restaurante> restaurantes, OnItemClickListener listener) {
         this.layout = layout;
         this.restaurantes = restaurantes;
@@ -43,6 +44,7 @@ public class RestaurantesAdapter extends RecyclerView.Adapter<RestaurantesAdapte
         return restaurantes.size();
     }
 
+    //se cargan los elementos graficos
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nombre,descripcion,ubicacion;
         public ImageView imagen;
@@ -68,6 +70,8 @@ public class RestaurantesAdapter extends RecyclerView.Adapter<RestaurantesAdapte
             });
         }
     }
+
+    //que pasara al darle click en uno de los items
     public interface OnItemClickListener{
         void onItemClick(Restaurante restaurante,int position);
     }

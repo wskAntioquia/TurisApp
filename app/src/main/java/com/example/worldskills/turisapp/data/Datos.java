@@ -36,6 +36,7 @@ public class Datos extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    //validar si fueron creadas las tablas
     public boolean validarCreacion(String tabla){
         db=getReadableDatabase();
         Cursor cursor=db.rawQuery("SELECT * FROM "+tabla,null);
@@ -46,6 +47,7 @@ public class Datos extends SQLiteOpenHelper {
         }
     }
 
+    //guardar los sitios
     public void guardarSitios(ArrayList<Sitio> sitios){
         db=getWritableDatabase();
       if (validarCreacion(Util.TBL_SITIOS)) {
@@ -64,6 +66,7 @@ public class Datos extends SQLiteOpenHelper {
         }
 
     }
+    //guardar los hoteles
 
     public void guardarHoteles(ArrayList<Hotel> hotels){
         db=getWritableDatabase();
@@ -84,6 +87,7 @@ public class Datos extends SQLiteOpenHelper {
 
     }
 
+    //guardar los restaurantes
     public void guardarRestaurantes(ArrayList<Restaurante> restaurantes){
         db=getWritableDatabase();
         if (validarCreacion(Util.TBL_RESTAURANTES)) {
@@ -103,6 +107,7 @@ public class Datos extends SQLiteOpenHelper {
 
     }
 
+    //listar los sitios
     public Cursor listarSitios(){
         db=getReadableDatabase();
         cursor=db.rawQuery("SELECT * FROM "+Util.TBL_SITIOS,null);
@@ -114,6 +119,7 @@ public class Datos extends SQLiteOpenHelper {
 
     }
 
+    //lisatar los hoteles
     public Cursor listarHoteles(){
         db=getReadableDatabase();
         cursor=db.rawQuery("SELECT * FROM "+Util.TBL_HOTELES,null);
@@ -125,6 +131,7 @@ public class Datos extends SQLiteOpenHelper {
 
     }
 
+    //listar los restaurantes
     public Cursor listarRestaurantes(){
         db=getReadableDatabase();
         cursor=db.rawQuery("SELECT * FROM "+Util.TBL_RESTAURANTES,null);

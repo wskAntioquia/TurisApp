@@ -28,6 +28,7 @@ public class Util implements BaseColumns {
     public static MenuItem listItem;
     public static MenuItem gridItem;
 
+    //crear la tabla sitios
     public static String sql_sitios="CREATE TABLE "+ Util.TBL_SITIOS +"("+
             _ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+
             CAMPO_NOMBRE+ " TEXT,"+
@@ -38,6 +39,7 @@ public class Util implements BaseColumns {
             CAMPO_LONGITUD+ " REAL,"+
             CAMPO_IMAGEN+ " INTEGER)";
 
+    //crear la tabla hoteles
     public static String sql_hoteles="CREATE TABLE "+ Util.TBL_HOTELES +"("+
             _ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+
             CAMPO_NOMBRE+ " TEXT,"+
@@ -48,6 +50,7 @@ public class Util implements BaseColumns {
             CAMPO_LONGITUD+ " REAL,"+
             CAMPO_IMAGEN+ " INTEGER)";
 
+    //crear la tabla restaurantes
     public static String sql_restaurantes="CREATE TABLE "+ Util.TBL_RESTAURANTES +"("+
             _ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+
             CAMPO_NOMBRE+ " TEXT,"+

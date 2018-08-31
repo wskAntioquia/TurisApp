@@ -19,6 +19,7 @@ public class HotelesAdapter extends RecyclerView.Adapter<HotelesAdapter.ViewHold
     private ArrayList<Hotel> hotels;
     private OnItemClickListener listener;
 
+    //constructor del adapter
     public HotelesAdapter(int layout, ArrayList<Hotel> hotels, OnItemClickListener listener) {
         this.layout = layout;
         this.hotels = hotels;
@@ -43,6 +44,7 @@ public class HotelesAdapter extends RecyclerView.Adapter<HotelesAdapter.ViewHold
         return hotels.size();
     }
 
+    //carga e inicializa los elementos de la interfaz grafica
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nombre,descripcion,ubicacion;
         public ImageView imagen;

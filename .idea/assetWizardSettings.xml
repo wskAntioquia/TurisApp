@@ -44,8 +44,7 @@
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="C:\Users\WORLDSKILLS\Documents\imagenes\hoteles.png" />
-                                      <entry key="outputName" value="hotele" />
+                                      <entry key="imageAsset" value="C:\Users\WORLDSKILLS\Desktop\c3_Antioquia\Recursos\icono144_144.png" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -55,7 +54,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputIconType" value="ACTIONBAR" />
+                            <entry key="outputIconType" value="LAUNCHER_LEGACY" />
                           </map>
                         </option>
                       </PersistentState>
